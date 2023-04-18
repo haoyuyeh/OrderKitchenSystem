@@ -14,6 +14,7 @@
 		7B81802B29EE654D00DC23DD /* OrderKitchenSystem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B81802929EE654D00DC23DD /* OrderKitchenSystem.xcdatamodeld */; };
 		7B81802D29EE654E00DC23DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B81802C29EE654E00DC23DD /* Assets.xcassets */; };
 		7B81803029EE654E00DC23DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B81802E29EE654E00DC23DD /* LaunchScreen.storyboard */; };
+		7B81803B29EE849A00DC23DD /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B81803A29EE849A00DC23DD /* PersistenceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		7B81802C29EE654E00DC23DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B81802F29EE654E00DC23DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B81803129EE654E00DC23DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B81803A29EE849A00DC23DD /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +60,49 @@
 		7B81801F29EE654D00DC23DD /* OrderKitchenSystem */ = {
 			isa = PBXGroup;
 			children = (
-				7B81802029EE654D00DC23DD /* AppDelegate.swift */,
-				7B81802229EE654D00DC23DD /* SceneDelegate.swift */,
-				7B81802429EE654D00DC23DD /* ViewController.swift */,
-				7B81802629EE654D00DC23DD /* Main.storyboard */,
-				7B81802C29EE654E00DC23DD /* Assets.xcassets */,
-				7B81802E29EE654E00DC23DD /* LaunchScreen.storyboard */,
-				7B81803129EE654E00DC23DD /* Info.plist */,
-				7B81802929EE654D00DC23DD /* OrderKitchenSystem.xcdatamodeld */,
+				7B81803829EE7A2600DC23DD /* others */,
+				7B81803C29EE84A200DC23DD /* Model */,
+				7B81803729EE786800DC23DD /* View */,
+				7B81803929EE7AA200DC23DD /* ViewModel */,
 			);
 			path = OrderKitchenSystem;
+			sourceTree = "<group>";
+		};
+		7B81803729EE786800DC23DD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7B81802C29EE654E00DC23DD /* Assets.xcassets */,
+				7B81802E29EE654E00DC23DD /* LaunchScreen.storyboard */,
+				7B81802629EE654D00DC23DD /* Main.storyboard */,
+				7B81802429EE654D00DC23DD /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7B81803829EE7A2600DC23DD /* others */ = {
+			isa = PBXGroup;
+			children = (
+				7B81802029EE654D00DC23DD /* AppDelegate.swift */,
+				7B81802229EE654D00DC23DD /* SceneDelegate.swift */,
+				7B81803129EE654E00DC23DD /* Info.plist */,
+			);
+			path = others;
+			sourceTree = "<group>";
+		};
+		7B81803929EE7AA200DC23DD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7B81803C29EE84A200DC23DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B81802929EE654D00DC23DD /* OrderKitchenSystem.xcdatamodeld */,
+				7B81803A29EE849A00DC23DD /* PersistenceManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +179,7 @@
 				7B81802529EE654D00DC23DD /* ViewController.swift in Sources */,
 				7B81802129EE654D00DC23DD /* AppDelegate.swift in Sources */,
 				7B81802B29EE654D00DC23DD /* OrderKitchenSystem.xcdatamodeld in Sources */,
+				7B81803B29EE849A00DC23DD /* PersistenceManager.swift in Sources */,
 				7B81802329EE654D00DC23DD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
