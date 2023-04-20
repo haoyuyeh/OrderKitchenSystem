@@ -1,0 +1,33 @@
+version: "Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)"
+options: "33fbd3b52f1ed4771f7af7db793acd20f36170d5455cdf435c6f9b35c571cbe7"
+build_start_time: [1681998432, 437381000]
+build_end_time: [1681998432, 471770000]
+inputs:
+  ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/OrderKitchenSystem/Model/PersistenceManager.swift"
+  : !private [1681805952, 512870106]
+  ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/OrderKitchenSystem/View/MainViewController.swift"
+  : !private [1681998426, 667146977]
+  ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/OrderKitchenSystem/ViewModel/MainViewModel.swift"
+  : !private [1681871576, 414094201]
+  ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/OrderKitchenSystem/others/AppDelegate.swift"
+  : !private [1681805829, 668488036]
+  ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/OrderKitchenSystem/others/SceneDelegate.swift"
+  : !private [1681810608, 743647986]
+  ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/build/OrderKitchenSystem.build/Debug-iphonesimulator/OrderKitchenSystem.build/DerivedSources/CoreDataGenerated/OrderKitchenSystem/Catagory+CoreDataClass.swift"
+  : !private [1681998432, 379504442]
+  ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/build/OrderKitchenSystem.build/Debug-iphonesimulator/OrderKitchenSystem.build/DerivedSources/CoreDataGenerated/OrderKitchenSystem/Catagory+CoreDataProperties.swift"
+  : !private [1681998432, 380574735]
+  ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/build/OrderKitchenSystem.build/Debug-iphonesimulator/OrderKitchenSystem.build/DerivedSources/CoreDataGenerated/OrderKitchenSystem/Item+CoreDataClass.swift"
+  : !private [1681998432, 377367022]
+  ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/build/OrderKitchenSystem.build/Debug-iphonesimulator/OrderKitchenSystem.build/DerivedSources/CoreDataGenerated/OrderKitchenSystem/Item+CoreDataProperties.swift"
+  : !private [1681998432, 377847398]
+  ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/build/OrderKitchenSystem.build/Debug-iphonesimulator/OrderKitchenSystem.build/DerivedSources/CoreDataGenerated/OrderKitchenSystem/Option+CoreDataClass.swift"
+  : !private [1681998432, 381387694]
+  ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/build/OrderKitchenSystem.build/Debug-iphonesimulator/OrderKitchenSystem.build/DerivedSources/CoreDataGenerated/OrderKitchenSystem/Option+CoreDataProperties.swift"
+  : !private [1681998432, 381836278]
+  ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/build/OrderKitchenSystem.build/Debug-iphonesimulator/OrderKitchenSystem.build/DerivedSources/CoreDataGenerated/OrderKitchenSystem/Order+CoreDataClass.swift"
+  : !private [1681998432, 383139446]
+  ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/build/OrderKitchenSystem.build/Debug-iphonesimulator/OrderKitchenSystem.build/DerivedSources/CoreDataGenerated/OrderKitchenSystem/Order+CoreDataProperties.swift"
+  : !private [1681998432, 384351531]
+  ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/build/OrderKitchenSystem.build/Debug-iphonesimulator/OrderKitchenSystem.build/DerivedSources/CoreDataGenerated/OrderKitchenSystem/OrderKitchenSystem+CoreDataModel.swift"
+  : !private [1681998432, 376132187]
