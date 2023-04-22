@@ -340,14 +340,28 @@ SWIFT_CLASS_NAMED("Item")
 @property (nonatomic, strong) Order * _Nullable belongedTo;
 @end
 
+@class UITableView;
+@class UILabel;
+@class UIButton;
 @class NSBundle;
 @class NSCoder;
 
 SWIFT_CLASS("_TtC18OrderKitchenSystem18MainViewController")
 @interface MainViewController : UIViewController
+@property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified purchasedItemsTableView;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified totalPrice;
+- (IBAction)payBtnPressed:(UIButton * _Nonnull)sender;
 - (void)viewDidLoad;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSIndexPath;
+@class UITableViewCell;
+
+@interface MainViewController (SWIFT_EXTENSION(OrderKitchenSystem)) <UITableViewDataSource>
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -400,6 +414,15 @@ SWIFT_CLASS_NAMED("Order")
 @property (nonatomic) double sum;
 @property (nonatomic, copy) NSUUID * _Nullable uuid;
 @property (nonatomic, strong) NSSet * _Nullable has;
+@end
+
+
+SWIFT_CLASS("_TtC18OrderKitchenSystem17PurchasedItemCell")
+@interface PurchasedItemCell : UITableViewCell
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified name;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified quantity;
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class UIWindow;

@@ -1,14 +1,16 @@
 version: "Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)"
 options: "33fbd3b52f1ed4771f7af7db793acd20f36170d5455cdf435c6f9b35c571cbe7"
-build_start_time: [1682145952, 691925000]
-build_end_time: [1682145953, 495808000]
+build_start_time: [1682150465, 259494000]
+build_end_time: [1682150465, 675561000]
 inputs:
   ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/OrderKitchenSystem/Model/PersistenceManager.swift"
   : [1681805952, 512870106]
   ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/OrderKitchenSystem/View/MainViewController.swift"
-  : [1681998426, 667146977]
+  : [1682150465, 154357387]
+  ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/OrderKitchenSystem/View/PurchasedItemCell.swift"
+  : [1682147994, 316390548]
   ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/OrderKitchenSystem/ViewModel/MainViewModel.swift"
-  : [1682145952, 274220363]
+  : [1682150282, 881384119]
   ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/OrderKitchenSystem/others/AppDelegate.swift"
   : [1681805829, 668488036]
   ? "/Users/haoyuyeh/Downloads/Software Develop Relate/Code/App Dev/OrderKitchenSystem/OrderKitchenSystem/OrderKitchenSystem/others/SceneDelegate.swift"

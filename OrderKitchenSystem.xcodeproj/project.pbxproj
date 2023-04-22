@@ -16,6 +16,7 @@
 		7B81803029EE654E00DC23DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B81802E29EE654E00DC23DD /* LaunchScreen.storyboard */; };
 		7B81803B29EE849A00DC23DD /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B81803A29EE849A00DC23DD /* PersistenceManager.swift */; };
 		7B99617529EF8A58007CBBF9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99617429EF8A58007CBBF9 /* MainViewModel.swift */; };
+		7BF7C43329F3C083004EAEE9 /* PurchasedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF7C43229F3C083004EAEE9 /* PurchasedItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		7B81803129EE654E00DC23DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B81803A29EE849A00DC23DD /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		7B99617429EF8A58007CBBF9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		7BF7C43229F3C083004EAEE9 /* PurchasedItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				7B81802E29EE654E00DC23DD /* LaunchScreen.storyboard */,
 				7B81802629EE654D00DC23DD /* Main.storyboard */,
 				7B81802429EE654D00DC23DD /* MainViewController.swift */,
+				7BF7C43229F3C083004EAEE9 /* PurchasedItemCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				7B81802129EE654D00DC23DD /* AppDelegate.swift in Sources */,
 				7B81802B29EE654D00DC23DD /* OrderKitchenSystem.xcdatamodeld in Sources */,
 				7B81803B29EE849A00DC23DD /* PersistenceManager.swift in Sources */,
+				7BF7C43329F3C083004EAEE9 /* PurchasedItemCell.swift in Sources */,
 				7B81802329EE654D00DC23DD /* SceneDelegate.swift in Sources */,
 				7B99617529EF8A58007CBBF9 /* MainViewModel.swift in Sources */,
 			);

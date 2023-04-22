@@ -27,11 +27,12 @@ class MainViewModel {
     /// setup data for further use
     func config() {
         let ordersFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Order")
-        
+        // use Date() contains YY:MM:DD:HH:SS
+        ordersFetch.predicate = NSPredicate(format: "createdDate >= %@", Calendar.current.startOfDay(for: Date()) as CVarArg)
         do {
             let orders = try persistenceManager.context.fetch(ordersFetch)
             currentOrderNumber = orders.count
-            nextOrder.orderNumber = String(currentOrderNumber + 1)
+            nextOrder.orderNumber = String(currentOrderNumber)
         }catch {
             print("fetch order failed in MainViewModel")
         }
@@ -51,7 +52,7 @@ class MainViewModel {
         return nextOrder.orderNumber ?? "fetch orders failed"
     }
     
-    func generateNextOrder() {
+    private func generateNextOrder() {
         nextOrder = Order(context: persistenceManager.context)
         nextOrder.uuid = UUID()
         nextOrder.createdDate = Date()
@@ -65,15 +66,8 @@ extension MainViewModel {
     /// - Returns: Int
     func getPurchasedItemCount() -> Int {
         print("getPurchasedItemCount called. --------------------------------------------------")
-        let itemFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Order")
-        var itemCount = 0
-        do {
-            purchasedItemOnNextOrder = try persistenceManager.context.fetch(itemFetch) as! [Item]
-            itemCount = purchasedItemOnNextOrder.count
-        }catch {
-            print("fetch orders failed in MainViewModel")
-        }
-        return itemCount
+        purchasedItemOnNextOrder = nextOrder.has?.allObjects as! [Item]
+        return purchasedItemOnNextOrder.count
     }
     
     /// return purchased items for generate cells of purchasedItemsTableView

@@ -3,6 +3,7 @@
     <device id="ipad12_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -26,7 +27,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PurchasedItemCell" id="tUZ-yi-g08" userLabel="Purchased Item Cell">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PurchasedItemCell" id="tUZ-yi-g08" userLabel="Purchased Item Cell" customClass="PurchasedItemCell" customModule="OrderKitchenSystem" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="50" width="410" height="43"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tUZ-yi-g08" id="1CA-JC-IXw">
@@ -67,8 +68,16 @@
                                                         <constraint firstItem="V1x-vE-g3R" firstAttribute="top" secondItem="1CA-JC-IXw" secondAttribute="topMargin" id="qce-gX-Eoq"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="name" destination="c1C-Oz-2iN" id="Q9h-CO-OKU"/>
+                                                    <outlet property="quantity" destination="V1x-vE-g3R" id="BXB-Tt-7VC"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="R70-nY-RPK"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="Ezo-7o-Lk1"/>
+                                        </connections>
                                     </tableView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8Xt-9u-cbz" userLabel="Sum">
                                         <rect key="frame" x="0.0" y="752.5" width="410" height="93"/>
@@ -78,7 +87,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Sum"/>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LF4-Mg-tPA">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LF4-Mg-tPA">
                                                 <rect key="frame" x="205" y="26" width="205" height="41"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <color key="textColor" systemColor="systemRedColor"/>
@@ -94,6 +103,9 @@
                                             </backgroundConfiguration>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="payBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Arv-AR-gpH"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -137,7 +149,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OptionCell" id="93r-4l-Gca" userLabel="Option Cell">
-                                        <rect key="frame" x="0.0" y="0.0" width="57.5" height="36.5"/>
+                                        <rect key="frame" x="0.0" y="10" width="57.5" height="36.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LHC-Q1-mSQ">
                                             <rect key="frame" x="0.0" y="0.0" width="57.5" height="36.5"/>
@@ -155,6 +167,38 @@
                                                 <constraint firstItem="s4G-Cc-bNd" firstAttribute="leading" secondItem="LHC-Q1-mSQ" secondAttribute="leadingMargin" id="Gxp-A8-O9T"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="s4G-Cc-bNd" secondAttribute="trailing" id="k2m-Uk-X6F"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="s4G-Cc-bNd" secondAttribute="bottom" id="qFP-CT-bCp"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SubOptionCell" id="1Ux-B1-MEN" userLabel="Sub-Option Cell">
+                                        <rect key="frame" x="67.5" y="0.0" width="57.5" height="56.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Zl2-xm-nXv">
+                                            <rect key="frame" x="0.0" y="0.0" width="57.5" height="56.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OG4-hy-2uR">
+                                                    <rect key="frame" x="8" y="8" width="41.5" height="40.5"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eDM-9D-Jdg">
+                                                            <rect key="frame" x="11" y="1" width="19.5" height="17.5"/>
+                                                            <color key="tintColor" systemColor="systemGrayColor"/>
+                                                            <imageReference key="image" image="checkmark.square" catalog="system" symbolScale="default"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZAz-2e-JlX">
+                                                            <rect key="frame" x="0.0" y="20" width="41.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="OG4-hy-2uR" firstAttribute="top" secondItem="Zl2-xm-nXv" secondAttribute="topMargin" id="Mgq-NN-ZgL"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="OG4-hy-2uR" secondAttribute="bottom" id="o2q-q5-HSc"/>
+                                                <constraint firstItem="OG4-hy-2uR" firstAttribute="leading" secondItem="Zl2-xm-nXv" secondAttribute="leadingMargin" id="vqw-R7-ElF"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="OG4-hy-2uR" secondAttribute="trailing" id="yRp-3p-h6f"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
@@ -185,11 +229,21 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CUb-NE-5Xx" secondAttribute="bottom" constant="5" id="hUV-mh-86g"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="#1" largeTitleDisplayMode="always" id="tx7-M4-LUK">
+                    <navigationItem key="navigationItem" title="title" largeTitleDisplayMode="always" id="tx7-M4-LUK">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis" catalog="system" id="rBo-f9-bqw"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="purchasedItemsTableView" destination="dy6-Wg-ZzX" id="wll-Cd-tjk"/>
+                        <outlet property="totalPrice" destination="LF4-Mg-tPA" id="gwG-bU-cFh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <collectionViewFlowLayout automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fIo-ja-OEp">
+                    <size key="itemSize" width="128" height="128"/>
+                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                </collectionViewFlowLayout>
             </objects>
             <point key="canvasLocation" x="903" y="-1833"/>
         </scene>
@@ -639,6 +693,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <namedColor name="AccentColor">
@@ -652,6 +707,9 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
