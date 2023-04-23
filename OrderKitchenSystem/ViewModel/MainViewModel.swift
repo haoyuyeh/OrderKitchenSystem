@@ -7,21 +7,24 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class MainViewModel {
     private let persistenceManager = PersistenceManager.shared
     
-    private var currentOrderNumber = 0 // numbers of all processed orders
-    private var nextOrder: Order // current order
-    private var purchasedItemOnNextOrder:[Item] = []
+    private var ordersMade = 0 // number of orders been taken
+    private var currentOrder: Order // current order
+    private var purchasedItemOnCurrentOrder:[Item] = []
     
     private var catagories: [Catagory] = [] // sorted by name
-    
+    private var currentCatagory: Catagory?
+    private var options: [Option] = []
+    private var commonOptions: [Option] = []
     
     init() {
-        nextOrder = Order(context: persistenceManager.context)
-        nextOrder.uuid = UUID()
-        nextOrder.createdDate = Date()
+        currentOrder = Order(context: persistenceManager.context)
+        currentOrder.uuid = UUID()
+        currentOrder.createdDate = Date()
     }
     
     /// setup data for further use
@@ -31,12 +34,13 @@ class MainViewModel {
         ordersFetch.predicate = NSPredicate(format: "createdDate >= %@", Calendar.current.startOfDay(for: Date()) as CVarArg)
         do {
             let orders = try persistenceManager.context.fetch(ordersFetch)
-            currentOrderNumber = orders.count
-            nextOrder.orderNumber = String(currentOrderNumber)
+            ordersMade = orders.count
+            // current order already construct in init
+            currentOrder.orderNumber = String(ordersMade)
         }catch {
             print("fetch order failed in MainViewModel")
         }
-                
+        
         let catagoriesFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Catagory")
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         catagoriesFetch.sortDescriptors = [sortDescriptor]
@@ -48,40 +52,43 @@ class MainViewModel {
         }
     }
     
-    func getNextOrderNumber() -> String {
-        return nextOrder.orderNumber ?? "fetch orders failed"
+    func getCurrentOrderNumber() -> String {
+        return currentOrder.orderNumber ?? "fetch orders failed"
     }
     
-    private func generateNextOrder() {
-        nextOrder = Order(context: persistenceManager.context)
-        nextOrder.uuid = UUID()
-        nextOrder.createdDate = Date()
-        purchasedItemOnNextOrder = []
+    private func generateNewOrder() {
+        currentOrder = Order(context: persistenceManager.context)
+        currentOrder.uuid = UUID()
+        currentOrder.createdDate = Date()
+        purchasedItemOnCurrentOrder = []
     }
 }
 // setup for all purchased items related
 extension MainViewModel {
     
+    /// whenever adding a purchased item, this function will update the 'purchasedItemOnCurrentOrder' to the latest
+    func updatePurchasedItemList() {
+        purchasedItemOnCurrentOrder = []
+        purchasedItemOnCurrentOrder = currentOrder.has?.allObjects as! [Item]
+    }
+    
     /// return the column number for the purchasedItemsTableView
     /// - Returns: Int
     func getPurchasedItemCount() -> Int {
-        print("getPurchasedItemCount called. --------------------------------------------------")
-        purchasedItemOnNextOrder = nextOrder.has?.allObjects as! [Item]
-        return purchasedItemOnNextOrder.count
+        return purchasedItemOnCurrentOrder.count
     }
     
     /// return purchased items for generate cells of purchasedItemsTableView
     /// - Returns: [Item]
-    func getPurchasedItem() -> [Item] {
-        print("getPurchasedItem called. --------------------------------------------------")
-        return purchasedItemOnNextOrder
+    func getPurchasedItems() -> [Item] {
+        return purchasedItemOnCurrentOrder
     }
     
     /// calculate the total price of purchased items
     /// - Returns: String: price in String format
-    func getSumOfNextOrder() -> String {
+    func getSumOfCurrentOrder() -> String {
         var sum = 0.0
-        for item in purchasedItemOnNextOrder {
+        for item in purchasedItemOnCurrentOrder {
             sum += (Double(item.quantity) * item.unitPrice)
         }
         return String(sum)
@@ -90,9 +97,9 @@ extension MainViewModel {
     /// save all changes of current order and generate next order
     func payBtnPressed() {
         persistenceManager.save()
-        currentOrderNumber += 1
-        generateNextOrder()
-        nextOrder.orderNumber = String(currentOrderNumber)
+        ordersMade += 1
+        generateNewOrder()
+        currentOrder.orderNumber = String(ordersMade)
     }
 }
 // setup for catagory table view
@@ -102,7 +109,8 @@ extension MainViewModel {
     func getCatagoriesCount() -> Int {
         return catagories.count
     }
-    /// return purchased items for generate cells of purchasedItemsTableView
+    
+    /// return all catagories for generate cells of catagoriesTableView
     /// - Returns: [Item]
     func getCatagories() -> [Catagory] {
         return catagories
@@ -110,28 +118,49 @@ extension MainViewModel {
 }
 // setup for menu options
 extension MainViewModel {
+    
+    /// one catagory contains two kinds of options: normal option as dishes and common option for all dishes
+    /// therefore, it should be splitted for further display
+    /// - Parameter index: indicate which catagory been selected now
+    func splitOptionsFromCatagory(at index: Int) {
+        currentCatagory = catagories[index]
+        options = []
+        commonOptions = []
+        var unSplitOptions = currentCatagory?.has?.allObjects as! [Option]
+        unSplitOptions.sort { o1, o2 in
+            if o1.name! < o2.name! {
+                return true
+            }else {
+                return false
+            }
+        }
+        for option in unSplitOptions {
+            if option.common {
+                commonOptions.append(option)
+            }else {
+                options.append(option)
+            }
+        }
+    }
+    
     /// return the option number for the catagory
     /// - Returns: Int
-    func getOptionsCount(at catagoryIndex: Int) -> Int {
-        return catagories[catagoryIndex].has?.allObjects.count ?? 0
+    func getOptionsCount() -> Int {
+        return options.count
     }
     /// return options for generate cells of optionCollectionView
     /// - Returns: [Option]
-    func getOptions(at catagoryIndex: Int) -> [Option] {
-        var options = catagories[catagoryIndex].has?.allObjects as! [Option]
-        options.sort { o1, o2 in
-            return o1.name! < o2.name! ? true : false
-        }
+    func getOptions() -> [Option] {
         return options
     }
-    /// return the sub-option number for the option
+    /// return the common option number for the option
     /// - Returns: Int
-    func getSubOptionsCount(of option: Option) -> Int {
-        return option.next?.allObjects.count ?? 0
+    func getCommonOptionsCount() -> Int {
+        return commonOptions.count
     }
-    /// return sub-options for generate cells of option
+    /// return common options for generate cells of option
     /// - Returns: [Option]
-    func getSubOptions(of option: Option) -> [Option] {
-        return option.next?.allObjects as! [Option]
+    func getCommonOptions() -> [Option] {
+        return commonOptions
     }
 }

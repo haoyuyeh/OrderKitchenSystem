@@ -2,7 +2,7 @@
 //  Option+CoreDataProperties.swift
 //  
 //
-//  Created by Hao Yu Yeh on 2023/4/20.
+//  Created by Hao Yu Yeh on 2023/4/23.
 //
 //  This file was automatically generated and should not be edited.
 //
@@ -18,6 +18,7 @@ extension Option {
     }
 
     @NSManaged public var common: Bool
+    @NSManaged public var commonSelected: Bool
     @NSManaged public var name: String?
     @NSManaged public var quantity: Int16
     @NSManaged public var unitPrice: Double

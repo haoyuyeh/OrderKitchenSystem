@@ -261,6 +261,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
 @import CoreData;
+@import CoreFoundation;
 @import Foundation;
 @import UIKit;
 #endif
@@ -323,6 +324,34 @@ SWIFT_CLASS_NAMED("Catagory")
 @property (nonatomic, strong) NSSet * _Nullable has;
 @end
 
+@class UILabel;
+@class NSCoder;
+
+SWIFT_CLASS("_TtC18OrderKitchenSystem12CatagoryCell")
+@interface CatagoryCell : UITableViewCell
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified name;
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UIImageView;
+
+SWIFT_CLASS("_TtC18OrderKitchenSystem16CommonOptionCell")
+@interface CommonOptionCell : UICollectionViewCell
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified checkMarkImage;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified name;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC18OrderKitchenSystem28HeaderCollectionReusableView")
+@interface HeaderCollectionReusableView : UICollectionReusableView
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified title;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 SWIFT_CLASS_NAMED("Item")
 @interface Item : NSManagedObject
@@ -341,27 +370,45 @@ SWIFT_CLASS_NAMED("Item")
 @end
 
 @class UITableView;
-@class UILabel;
 @class UIButton;
+@class UICollectionView;
 @class NSBundle;
-@class NSCoder;
 
 SWIFT_CLASS("_TtC18OrderKitchenSystem18MainViewController")
 @interface MainViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified purchasedItemsTableView;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified totalPrice;
 - (IBAction)payBtnPressed:(UIButton * _Nonnull)sender;
+@property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified catagoryTableView;
+@property (nonatomic, weak) IBOutlet UICollectionView * _Null_unspecified optionsCollectionView;
 - (void)viewDidLoad;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class NSIndexPath;
-@class UITableViewCell;
+
+@interface MainViewController (SWIFT_EXTENSION(OrderKitchenSystem)) <UICollectionViewDelegate>
+- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+
+@interface MainViewController (SWIFT_EXTENSION(OrderKitchenSystem)) <UITableViewDelegate>
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
 
 @interface MainViewController (SWIFT_EXTENSION(OrderKitchenSystem)) <UITableViewDataSource>
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface MainViewController (SWIFT_EXTENSION(OrderKitchenSystem)) <UICollectionViewDataSource>
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView * _Nonnull)collectionView SWIFT_WARN_UNUSED_RESULT;
+- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (UICollectionReusableView * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView viewForSupplementaryElementOfKind:(NSString * _Nonnull)kind atIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -382,6 +429,7 @@ SWIFT_CLASS_NAMED("Option")
 
 @interface Option (SWIFT_EXTENSION(OrderKitchenSystem))
 @property (nonatomic) BOOL common;
+@property (nonatomic) BOOL commonSelected;
 @property (nonatomic, copy) NSString * _Nullable name;
 @property (nonatomic) int16_t quantity;
 @property (nonatomic) double unitPrice;
@@ -389,6 +437,14 @@ SWIFT_CLASS_NAMED("Option")
 @property (nonatomic, strong) Catagory * _Nullable catagory;
 @property (nonatomic, strong) NSSet * _Nullable next;
 @property (nonatomic, strong) Option * _Nullable previous;
+@end
+
+
+SWIFT_CLASS("_TtC18OrderKitchenSystem10OptionCell")
+@interface OptionCell : UICollectionViewCell
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified name;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 

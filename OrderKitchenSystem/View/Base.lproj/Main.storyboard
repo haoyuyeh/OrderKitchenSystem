@@ -114,42 +114,49 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" name="AccentColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CatagoryCell" id="w45-wE-2FD" userLabel="Catagory Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CatagoryCell" id="w45-wE-2FD" userLabel="Catagory Cell" customClass="CatagoryCell">
                                         <rect key="frame" x="0.0" y="50" width="136.5" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w45-wE-2FD" id="OBe-eV-6Lp">
                                             <rect key="frame" x="0.0" y="0.0" width="136.5" height="51"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dumpling" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y7I-6T-jdp">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ec-vH-QT8">
                                                     <rect key="frame" x="16" y="15" width="104.5" height="21"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="y7I-6T-jdp" firstAttribute="leading" secondItem="OBe-eV-6Lp" secondAttribute="leadingMargin" id="5sh-WO-clO"/>
-                                                <constraint firstItem="y7I-6T-jdp" firstAttribute="top" secondItem="OBe-eV-6Lp" secondAttribute="topMargin" id="J7K-8g-qMF"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="y7I-6T-jdp" secondAttribute="bottom" id="JuY-A2-fCf"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="y7I-6T-jdp" secondAttribute="trailing" id="scB-BW-ux9"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9ec-vH-QT8" secondAttribute="bottom" id="Guz-eY-TZa"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="9ec-vH-QT8" secondAttribute="trailing" id="WHH-17-v8h"/>
+                                                <constraint firstItem="9ec-vH-QT8" firstAttribute="top" secondItem="OBe-eV-6Lp" secondAttribute="topMargin" id="cTS-ri-1iT"/>
+                                                <constraint firstItem="9ec-vH-QT8" firstAttribute="leading" secondItem="OBe-eV-6Lp" secondAttribute="leadingMargin" id="wZc-ek-Ysg"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="name" destination="9ec-vH-QT8" id="hoO-td-BWE"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="1dg-lG-LYJ"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="j8z-ce-gFc"/>
+                                </connections>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CUb-NE-5Xx" userLabel="Options Collection View">
                                 <rect key="frame" x="566.5" y="79" width="789.5" height="920"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xyi-gH-WLQ">
                                     <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OptionCell" id="93r-4l-Gca" userLabel="Option Cell">
-                                        <rect key="frame" x="0.0" y="10" width="57.5" height="36.5"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OptionCell" id="93r-4l-Gca" userLabel="Option Cell" customClass="OptionCell" customModule="OrderKitchenSystem" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="60" width="57.5" height="36.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LHC-Q1-mSQ">
                                             <rect key="frame" x="0.0" y="0.0" width="57.5" height="36.5"/>
@@ -169,9 +176,12 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="s4G-Cc-bNd" secondAttribute="bottom" id="qFP-CT-bCp"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="name" destination="s4G-Cc-bNd" id="Qbd-n8-qzw"/>
+                                        </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SubOptionCell" id="1Ux-B1-MEN" userLabel="Sub-Option Cell">
-                                        <rect key="frame" x="67.5" y="0.0" width="57.5" height="56.5"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CommonOptionCell" id="1Ux-B1-MEN" userLabel="Common Option Cell" customClass="CommonOptionCell" customModule="OrderKitchenSystem" customModuleProvider="target">
+                                        <rect key="frame" x="67.5" y="50" width="57.5" height="56.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Zl2-xm-nXv">
                                             <rect key="frame" x="0.0" y="0.0" width="57.5" height="56.5"/>
@@ -201,8 +211,38 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="OG4-hy-2uR" secondAttribute="trailing" id="yRp-3p-h6f"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkMarkImage" destination="eDM-9D-Jdg" id="6F3-ce-ZPU"/>
+                                            <outlet property="name" destination="ZAz-2e-JlX" id="Luf-a2-gNN"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="HeaderCollectionReusableView" id="nCh-Pi-wwj" customClass="HeaderCollectionReusableView" customModule="OrderKitchenSystem" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="789.5" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IF1-eN-PNS">
+                                            <rect key="frame" x="8" y="8" width="773.5" height="34"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="IF1-eN-PNS" secondAttribute="bottom" id="475-Pc-r0M"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="IF1-eN-PNS" secondAttribute="trailing" id="CsC-Q3-GRQ"/>
+                                        <constraint firstItem="IF1-eN-PNS" firstAttribute="top" secondItem="nCh-Pi-wwj" secondAttribute="topMargin" id="ZHf-V4-VL8"/>
+                                        <constraint firstItem="IF1-eN-PNS" firstAttribute="leading" secondItem="nCh-Pi-wwj" secondAttribute="leadingMargin" id="lQs-Eq-viR"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="title" destination="IF1-eN-PNS" id="nUM-oW-x4O"/>
+                                    </connections>
+                                </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="iqY-9R-moS"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="lFj-c5-jWd"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -233,6 +273,8 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis" catalog="system" id="rBo-f9-bqw"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="catagoryTableView" destination="jeD-7J-t7I" id="zlg-Kb-vwq"/>
+                        <outlet property="optionsCollectionView" destination="CUb-NE-5Xx" id="rHu-gY-DNO"/>
                         <outlet property="purchasedItemsTableView" destination="dy6-Wg-ZzX" id="wll-Cd-tjk"/>
                         <outlet property="totalPrice" destination="LF4-Mg-tPA" id="gwG-bU-cFh"/>
                     </connections>
@@ -710,6 +752,9 @@
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
