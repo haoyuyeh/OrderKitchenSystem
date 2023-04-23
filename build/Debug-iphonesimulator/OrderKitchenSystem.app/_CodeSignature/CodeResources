@@ -22,15 +22,23 @@
 		</data>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
-		4WeO6sY25pn7fnUYqaeRMKLsZSA=
+		ohYroOpnAiqFkPci8FjC82uA3sw=
+		</data>
+		<key>Base.lproj/Main.storyboardc/M.nib</key>
+		<data>
+		u7yVdZt6hb4uGRVrL6kcU3N9OuA=
 		</data>
 		<key>Base.lproj/Main.storyboardc/MainVC.nib</key>
 		<data>
-		BKLxjq7ryPKiHKzZ+nAO3NYXwt4=
+		FuOX3jtytskGVkQVQINzHgVm2Go=
 		</data>
 		<key>Base.lproj/Main.storyboardc/UINavigationController-2Cm-sl-nVh.nib</key>
 		<data>
-		s95pkf0RVeuSFF/vIEszyeVVvKo=
+		eHSs3VQqEsQAGkMwWvD5DrlkuZY=
+		</data>
+		<key>Base.lproj/Main.storyboardc/xX4-EA-rzp-view-jzl-mP-kWv.nib</key>
+		<data>
+		KoiQdwWF4nTfIX8iXaSIIOTzU6U=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -87,21 +95,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zXFQ8AvLlb9bThJWrw9eL96+0vFtS8G/M3YMhmMwNwA=
+			8g3KDAQw48ZngOGQqduYrDCayy6m3zkgshjJmrPjjWw=
+			</data>
+		</dict>
+		<key>Base.lproj/Main.storyboardc/M.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			H8eesxFQXutBWHViM4kMrd8lVzjPirsN+f47b3gKLm4=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/MainVC.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			s8BhcO+quMZQm5L8b7AX3QmYXUeinT0RgUb3X+zz/ec=
+			G/DPfFJFDVJccxNpQXVsBKhspZwb2wcfJzdZmbQ5OFA=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/UINavigationController-2Cm-sl-nVh.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			g4GBCXje81yNsZ3YpNAI02HEjJUvfHt1tYABWUmkoQM=
+			/DA0p+dUU9V8VMojw69apeXrAQpf0u7/9s009yufGZo=
+			</data>
+		</dict>
+		<key>Base.lproj/Main.storyboardc/xX4-EA-rzp-view-jzl-mP-kWv.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			5ZH71ApBgzzRm/jlQgoHqvO7F/NRxzoxOLx7FQVMHes=
 			</data>
 		</dict>
 		<key>OrderKitchenSystem.momd/OrderKitchenSystem.mom</key>

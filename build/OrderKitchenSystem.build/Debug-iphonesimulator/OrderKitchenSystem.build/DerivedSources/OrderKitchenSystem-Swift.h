@@ -369,13 +369,14 @@ SWIFT_CLASS_NAMED("Item")
 @property (nonatomic, strong) Order * _Nullable belongedTo;
 @end
 
-@class UITableView;
 @class UIButton;
+@class UITableView;
 @class UICollectionView;
 @class NSBundle;
 
 SWIFT_CLASS("_TtC18OrderKitchenSystem18MainViewController")
 @interface MainViewController : UIViewController
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified moreBtn;
 @property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified purchasedItemsTableView;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified totalPrice;
 - (IBAction)payBtnPressed:(UIButton * _Nonnull)sender;
@@ -409,6 +410,14 @@ SWIFT_CLASS("_TtC18OrderKitchenSystem18MainViewController")
 - (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (UICollectionReusableView * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView viewForSupplementaryElementOfKind:(NSString * _Nonnull)kind atIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC18OrderKitchenSystem22MenuEditViewController")
+@interface MenuEditViewController : UIViewController
+- (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
